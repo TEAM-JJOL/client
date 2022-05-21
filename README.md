@@ -57,12 +57,33 @@ Git Flow 방식
 ⎣ src
    ├── App.jsx
    ├── assets
+   │   ├── btn_finish_go.svg
+   │   ├── btn_go.svg
+   │   ├── btn_link.svg
+   │   ├── btn_start.svg
+   │   ├── button.svg
+   │   ├── goBtn.png
+   │   ├── goshim.png
+   │   ├── ic_checkbtn.svg
+   │   ├── ic_gobutton.svg
+   │   ├── ic_logoGray.svg
+   │   ├── ic_logoGreen.svg
+   │   ├── icn_key.svg
+   │   ├── logo.png
+   │   ├── logo.svg
+   │   ├── logoGray.svg
+   │   ├── mainGoBtn.png
+   │   ├── monster.png
+   │   ├── 가.png
+   │   ├── 고.png
+   │   ├── 보.png
+   │   └── 자.png
    ├── components
-   │   ├── common 
-   │   ├── intro
-   │   ├── login
    │   ├── main
+   │   │   └── ListItem.jsx
    │   └── result
+   │       ├── Background.jsx
+   │       └── ResultMissionList.jsx
    ├── cores
    │   ├── api.js
    │   ├── hooks
@@ -75,8 +96,8 @@ Git Flow 방식
    │   ├── Main.jsx
    │   └── Result.jsx
    └── styles
-        ├── globalStyle.js
-        └── theme.js
+         ├── globalStyle.js
+         └── theme.js
 ```
 
 ### 역할 분배
@@ -87,7 +108,8 @@ Git Flow 방식
            💛 윤지영 💛
         </td>
         <td>
-           인트로 페이지 뷰 구현 및 로직 구현
+           인트로 페이지 뷰 구현 및 로직 구현<br>
+           결과 페이지 뷰 구현 및 로직 구현
         </td>
     </tr>
     <tr align="center">
@@ -95,7 +117,8 @@ Git Flow 방식
             😎 이은아 😎
         </td>
         <td>
-            로그인 페이지 뷰 구현 및 로직 구현
+            로그인 페이지 뷰 구현 및 로직 구현<br>
+           로그인 api, 결과 api 연결 
         </td>
     </tr>
     <tr align="center">
@@ -103,7 +126,8 @@ Git Flow 방식
             ☀️ 전희선 ☀️
         </td>
         <td>
-           메인페이지 뷰 구현 및 로직 구현 
+           메인페이지 뷰 구현 및 로직 구현<br>
+           mission 추가 api, mission get api, mission post api 추가
         </td>
     </tr>
 </table>
