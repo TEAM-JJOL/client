@@ -1,5 +1,6 @@
+import startBtn from 'assets/btn_start.svg';
 import goshim from 'assets/goshim.png';
-import MainGo from 'assets/mainGoBtn.png';
+import charactor from 'assets/monster.png';
 import ResultMissionList from 'components/result/ResultMissionList';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,8 +18,8 @@ const StartBtn = styled.button`
   background-image: ${(props) => `url(${props.url})`};
   background-color: transparent;
   background-size: contain;
-  width: 17.2rem;
-  height: 6.8rem;
+  width: 16.9rem;
+  height: 6.4rem;
   border: none;
   margin-top: 6.9rem;
   /* margin-left: 10.9rem; */
@@ -31,10 +32,10 @@ const SurviceDsc = styled.h1`
 `;
 
 const IntroImg = styled.img`
-  width: 22.5rem;
-  height: 22.5rem;
+  width: 28.6rem;
+  height: 20.6rem;
   /* margin-left: 7.5rem; */
-  margin-top: 2rem;
+  margin-top: 3.8rem;
 `;
 
 const FooterContainer = styled.div`
@@ -69,8 +70,8 @@ function Intro() {
     <StyledRoot>
       <LogoIcon src={logo} />
       <SurviceDsc>친구야 내일 하루 이거 함 해봐 ㅋ 쫄?!</SurviceDsc>
-      <IntroImg src={goshim} />
-      <StartBtn onClick={() => navigate('Login')} url={MainGo} />
+      <IntroImg src={charactor} />
+      <StartBtn onClick={() => navigate('Login')} url={startBtn} />
       <FooterContainer>
         <ShareBtn>링크 공유하기</ShareBtn>
         <CreateBtn>나도 쫄 링크 만들기</CreateBtn>
