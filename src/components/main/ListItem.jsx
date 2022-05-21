@@ -4,12 +4,17 @@ import logoGreen from 'assets/ic_logoGreen.svg';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function ListItem({ content }) {
+function ListItem({ content, handleSetCheckedList, id }) {
   const [isClicked, setIsClicked] = useState(false);
   const toggle = () => setIsClicked(!isClicked);
 
+  const handleClick = () => {
+    toggle();
+    handleSetCheckedList(id);
+  };
+
   return (
-    <StyledRoot onClick={toggle} isClicked={isClicked}>
+    <StyledRoot onClick={handleClick} isClicked={isClicked}>
       <StyledWrapper>
         <img src={isClicked ? logoGreen : logoGray} width="35px" height="22px" />
         <span>{content}</span>
