@@ -12,16 +12,15 @@ function Login() {
   });
   const [linkId, setLinkId] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    getLinkId();
-    // window.location.href = `/main/${linkId}`;
+    await getLinkId();
+    window.location.href = `/main/${linkId}`;
   };
 
   const getLinkId = async () => {
     const result = await client.post('/link', inputs);
-    console.log(result);
-    setLinkId(result.data.id);
+    setLinkId(result.data.data.id);
   };
 
   const handleChangeInput = (e) => {
@@ -71,13 +70,9 @@ function Login() {
 
 export default Login;
 
-const StForm = styled.form`
-  /* width: 100%; */
-`;
+const StForm = styled.form``;
 
 const StWrapper = styled.div`
-  /* width: 100%;
-  height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +109,7 @@ const StPWDInputWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 72px;
   hr {
     color: #77777780;
     width: 272px;
@@ -135,13 +131,11 @@ const StPWDInput = styled.input`
 `;
 
 const StButton = styled.button`
-  position: fixed;
   width: 172px;
   height: 68px;
   background-color: transparent;
   border: 0;
   outline: 0;
-  bottom: 200px;
 `;
 
 const StLogoIcon = styled(Logo)`
