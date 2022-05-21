@@ -28,7 +28,7 @@ const ListText = styled.li`
 const GoBtn = styled.button`
   border: none;
   background-color: transparent;
-  background-size: contain;
+  background-size: cover;
   width: 7.4rem;
   height: 2.44rem;
   background-image: ${(props) => `url(${props.url})`};
