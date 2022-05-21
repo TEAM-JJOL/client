@@ -19,11 +19,8 @@
 ### Code convention
 - eslint, prettier사용
 - react-router-dom v.6
-<!-- - 컴포넌트는 화살표 함수로 선언 -->
-<!-- - props는 구조분해할당 객체로 받아오기 -->
-<!-- - event handler 함수는 HandleEvent 형식으로 선언 -->
-<!-- - styled-components는 className 없이 선택자만으로 사용 -->
-<!-- - styled-components의 이름은 StyledComponent 형식으로 사용 -->
+- styled-components는 className 없이 선택자만으로 사용
+- styled-components의 이름은 StyledComponent 형식으로 사용
 - 변수, 폴더명, 컴포넌트가 아닌 js 파일은 camelCase로 선언
 - 컴포넌트 파일은 UpperCamelCase.jsx로 선언
 
