@@ -1,7 +1,8 @@
 import gobtn from 'assets/ic_gobutton.svg';
 import logoGreen from 'assets/ic_logoGreen.svg';
 import ListItem from 'components/main/ListItem';
-import React, { useState } from 'react';
+import { client } from 'cores/api';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,6 +11,12 @@ function Main() {
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
   const text = window.location.href;
+
+  const getMissions = async () => {
+    await client.get('/mission/');
+  };
+
+  useEffect(() => {}, []);
 
   const handleCopyClipBoard = async (text) => {
     try {
