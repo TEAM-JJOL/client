@@ -1,8 +1,6 @@
 import goBtn from 'assets/goBtn.png';
 import styled from 'styled-components';
 
-const dummyList = ['a', 'b', 'c', 'd', 'e', 'f', 'i', 'g'];
-
 const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,18 +51,17 @@ const Contents = styled.div`
   margin-bottom: 19.64px;
 `;
 
-const ResultMissionList = () => {
+const ResultMissionList = ({ headerInfo, missions }) => {
   return (
     <StyledRoot>
       <ListContainer>
         <ListTitle>
-          {' '}
-          5월 21일 <br /> 채민, <br /> 함 가보자고!{' '}
+          {headerInfo.date} <br /> {headerInfo.nickname}, <br /> 함 가보자고!
         </ListTitle>
         <ListTextContainer>
-          {dummyList.map((item) => (
-            <Contents key={item}>
-              <ListText>{item}</ListText>
+          {missions.map((mission) => (
+            <Contents key={mission._id}>
+              <ListText>{mission.content}</ListText>
               <GoBtn url={goBtn} />
             </Contents>
           ))}
