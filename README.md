@@ -41,7 +41,7 @@ Git Flow 방식
 
 + main : 최종적으로 배포되는 브랜치
 
-+ feature/{구현기능명} : develop 브랜치 아래에서 컴포넌트 기능 단위로 나누어 브랜치 만들기
++ feat/{구현기능명} : main 브랜치 아래에서 컴포넌트 기능 단위로 나누어 브랜치 만들기
 
 
 ### Directory Structure
@@ -72,3 +72,34 @@ Git Flow 방식
         ├── globalStyle.js
         └── theme.js
 ```
+
+### 역할 분배
+
+<table>
+    <tr align="center">
+        <td>
+           💛 윤지영 💛
+        </td>
+        <td>
+           인트로 페이지
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            😎 이은아 😎
+        </td>
+        <td>
+            로그인 페이지
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            ☀️ 전희선 ☀️
+        </td>
+        <td>
+           프로필 컴포넌트<br>
+           드롭다운메뉴 컴포넌트<br>
+           서버 연결<br>
+        </td>
+    </tr>
+</table>
