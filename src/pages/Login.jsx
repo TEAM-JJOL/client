@@ -93,10 +93,11 @@ const StNameTitle = styled.span`
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
+  padding-top: 5px;
 `;
 
 const StNameInput = styled.input`
-  width: ${(props) => (props.word === 0 ? '100px' : `${props.word * 35}px`)};
+  width: ${(props) => (props.word === 0 ? '100px' : `${props.word * 37}px`)};
   padding: 0px 5px;
   font-size: 32px;
   font-weight: 700;
