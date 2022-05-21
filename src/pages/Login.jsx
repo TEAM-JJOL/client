@@ -2,7 +2,8 @@ import { client } from 'cores/api';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Button } from '../assets/btn_link.svg';
+// import { ReactComponent as Button } from '../assets/btn_link.svg';
+import button from '../assets/btn_link.svg';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
 function Login() {
@@ -60,9 +61,9 @@ function Login() {
           <hr />
         </StPWDInputWrapper>
       </StForm>
-      <StButton type="submit" form="login">
-        <Button />
-      </StButton>
+      <StButton type="submit" form="login" url={button} />
+      {/* <Button />
+      </StButton> */}
     </StWrapper>
   );
 }
@@ -82,24 +83,30 @@ const StWrapper = styled.div`
 const StNameInputWrapper = styled.div`
   display: flex;
   justify-content: center;
-  line-height: 38px;
+  align-items: center;
+  /* line-height: 38px; */
   margin-bottom: 24px;
+  /* width: 100%; */
 `;
 
 const StNameTitle = styled.span`
   font-size: 32px;
   font-weight: 700;
+  line-height: 38px;
 `;
 
 const StNameInput = styled.input`
-  width: ${(props) => (props.word === 0 ? '95px' : `${props.word * 30}px`)};
+  width: ${(props) => (props.word === 0 ? '100px' : `${props.word * 35}px`)};
+  padding: 0px 5px;
   font-size: 32px;
   font-weight: 700;
   border: none;
+  text-align: center;
   &:focus {
     outline: none;
   }
   &::placeholder {
+    text-align: center;
     color: #b3b3b3;
     font-size: 32px;
   }
@@ -132,11 +139,18 @@ const StPWDInput = styled.input`
 `;
 
 const StButton = styled.button`
-  width: 172px;
+  /* width: 172px;
   height: 68px;
   background-color: transparent;
   border: 0;
-  outline: 0;
+  outline: 0; */
+  background-image: ${(props) => `url(${props.url})`};
+  background-color: transparent;
+  background-size: cover;
+  width: 16.9rem;
+  height: 6.4rem;
+  border: none;
+  margin-top: 6.9rem;
 `;
 
 const StLogoIcon = styled(Logo)`
