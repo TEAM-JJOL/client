@@ -13,6 +13,7 @@ function Main() {
   const [pw, setPassword] = useState('');
   const [name, setName] = useState('');
   const [checkedList, setCheckedList] = useState([]);
+  const [isCopy, setIsCopy] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const text = window.location.href;
@@ -46,7 +47,10 @@ function Main() {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert('복사 성공!');
+      setTimeout(() => {
+        setIsCopy(false);
+      }, 1000);
+      setIsCopy(true);
     } catch (error) {
       alert('복사 실패!');
     }
@@ -86,6 +90,12 @@ function Main() {
 
   return (
     <StyledRoot>
+      {isCopy && (
+        <StyledModal>
+          <img src={logoGreen} width="76px" height="56px" />
+          <span>친구들에게 링크를 공유하세요!</span>
+        </StyledModal>
+      )}
       <img src="" />
       <StyledTitle>
         <span>{name}</span>
@@ -113,7 +123,6 @@ function Main() {
         <img src={key} width="30px" height="30px" />
         <StyledPassword type="password" placeholder="비밀번호를 입력해주세요" value={pw} onChange={handlePassword} />
       </StyledPwWrapper>
-
       <img src={gobtn} onClick={handleCheckedList} />
       <StyledLinkWrapper>
         <StyledLinkBtn onClick={() => handleCopyClipBoard(text)}>링크 공유하기</StyledLinkBtn>
@@ -127,11 +136,33 @@ export default Main;
 
 const StyledRoot = styled.div`
   display: flex;
+  position: relative;
   height: 100%;
   flex-direction: column;
   align-items: center;
   width: 31.7rem;
   margin: 0 auto;
+`;
+
+const StyledModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 274px;
+  height: 143px;
+  background: #c4e5c1;
+  border-radius: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 2.2rem;
+  & > span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 const StyledTitle = styled.div`
