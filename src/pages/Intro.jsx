@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
 const LogoIcon = styled.img`
-  margin-top: 14.7rem;
   /* margin-left: 10.2rem; */
   margin-bottom: 2.5rem;
 `;
@@ -17,7 +16,8 @@ const LogoIcon = styled.img`
 const StartBtn = styled.button`
   background-image: ${(props) => `url(${props.url})`};
   background-color: transparent;
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 16.9rem;
   height: 6.4rem;
   border: none;
@@ -61,6 +61,8 @@ const StyledRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
 
 function Intro() {
