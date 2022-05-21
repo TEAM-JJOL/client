@@ -40,41 +40,38 @@
 
 
 ### Git Branch convention
-- Git Flow 방식
+Git Flow 방식
 
-main : 최종적으로 배포되는 브랜치
++ main : 최종적으로 배포되는 브랜치
 
-feature/{구현기능명} : develop 브랜치 아래에서 컴포넌트 기능 단위로 나누어 브랜치 만들기
++ feature/{구현기능명} : develop 브랜치 아래에서 컴포넌트 기능 단위로 나누어 브랜치 만들기
 
 
-<!-- ### Directory Structure
+### Directory Structure
 ```
-⎡ 📁 public
+⎡ public
 ⎜  ⎿ index.html
-⎣ 📁 src
-   ⎿ 📁 assets
-   ⎹  ⎿ 📁 fonts
-   ⎹  ⎿ 📁 icons
-   ⎹  ⎿ 📁 images
-   ⎿ 📁 components
-   ⎹  ⎿ 📁 common
-   ⎹  ⎿ 📁 create
-   ⎹  ⎿ 📁 ending
-   ⎹  ⎿ 📁 intro
-   ⎹  ⎿ 📁 join
-   ⎹  ⎿ 📁 main
-   ⎹  ⎿ 📁 result
-   ⎿ 📁 libs
-   ⎹  ⎿ 📁 constant
-   ⎹  ⎹  ⎿ colors.js
-   ⎹  ⎿ api.js
-   ⎿ 📁 pages
-   ⎹  ⎿ Create.jsx
-   ⎹  ⎿ Ending.jsx
-   ⎹  ⎿ Intro.jsx
-   ⎹  ⎿ Join.jsx
-   ⎹  ⎿ Main.jsx
-   ⎹  ⎿ Result.jsx
-   ⎿ APP.js
-   ⎿ index.js
-``` -->
+⎣ src
+   ├── App.jsx
+   ├── assets
+   ├── components
+   │   ├── common 
+   │   ├── intro
+   │   ├── login
+   │   ├── main
+   │   └── result
+   ├── cores
+   │   ├── api.js
+   │   ├── hooks
+   │   │   └── useAPI.js
+   │   └── router.jsx
+   ├── index.jsx
+   ├── pages
+   │   ├── Intro.jsx
+   │   ├── Login.jsx
+   │   ├── Main.jsx
+   │   └── Result.jsx
+   └── styles
+        ├── globalStyle.js
+        └── theme.js
+```
