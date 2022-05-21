@@ -5,8 +5,9 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   #root, body, html {
-    width: 100%;
+    width: 375px;
     height: 100%;
+    margin: 0 auto;
 
     font-size: 62.5%;
   }
