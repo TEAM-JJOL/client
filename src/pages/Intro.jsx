@@ -33,25 +33,6 @@ const IntroImg = styled.img`
   margin-top: 3.8rem;
 `;
 
-const FooterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-`;
-
-const ShareBtn = styled.div`
-  color: #777777;
-  font-size: 13px;
-  margin-right: 1.7rem;
-  border-bottom: solid 0.5px rgba(119, 119, 119, 0.5);
-`;
-
-const CreateBtn = styled.div`
-  color: #777777;
-  font-size: 13px;
-  border-bottom: solid 0.5px rgba(119, 119, 119, 0.5);
-`;
-
 const StyledRoot = styled.div`
   display: flex;
   flex-direction: column;
