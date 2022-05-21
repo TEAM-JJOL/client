@@ -1,7 +1,21 @@
+import BackGround from 'components/result/Background';
+import ResultMissionList from 'components/result/ResultMissionList';
 import React from 'react';
+import styled from 'styled-components';
 
 function Result() {
-  return <div>결과</div>;
+  return (
+    <StyledRoot>
+      <BackGround />
+      <ResultMissionList />
+    </StyledRoot>
+  );
 }
 
 export default Result;
+
+const StyledRoot = styled.div`
+  display: flex;
+  position: relative;
+  height: 100%;
+`;
