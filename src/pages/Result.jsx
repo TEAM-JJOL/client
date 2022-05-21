@@ -16,6 +16,8 @@ export default Result;
 
 const StyledRoot = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   height: 100%;
 `;

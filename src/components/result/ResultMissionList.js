@@ -1,20 +1,29 @@
 import goBtn from 'assets/goBtn.png';
 import styled from 'styled-components';
 
+const dummyList = ['a', 'b', 'c', 'd', 'e', 'f', 'i', 'g'];
+
 const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 34.6rem;
+  justify-content: center;
   margin-left: 1.6rem;
+  margin-top: 15rem;
 `;
 
-const ListText = styled.div`
+const ListTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  max-height: 25rem;
+  overflow: scroll;
+`;
+
+const ListText = styled.li`
+  list-style: none;
   color: black;
   font-size: 14px;
   font-weight: 600;
-  height: 14px;
-  line-height: 14px;
   margin-top: 7px;
 `;
 
@@ -31,17 +40,37 @@ const GoBtn = styled.button`
 
 const ListTitle = styled.div`
   color: black;
+  font-weight: 700;
+  font-size: 32px;
+`;
+
+const StyledRoot = styled.div`
+  height: 100vh;
+`;
+
+const Contents = styled.div`
+  display: flex;
+  margin-bottom: 19.64px;
 `;
 
 const ResultMissionList = () => {
   return (
-    <>
+    <StyledRoot>
       <ListContainer>
-        <ListTitle />
-        <ListText>매운음식 하나 먹고 눈물셀카 찍어 보내기</ListText>
-        <GoBtn url={goBtn} />
+        <ListTitle>
+          {' '}
+          5월 21일 <br /> 채민, <br /> 함 가보자고!{' '}
+        </ListTitle>
+        <ListTextContainer>
+          {dummyList.map((item) => (
+            <Contents key={item}>
+              <ListText>{item}</ListText>
+              <GoBtn url={goBtn} />
+            </Contents>
+          ))}
+        </ListTextContainer>
       </ListContainer>
-    </>
+    </StyledRoot>
   );
 };
 
