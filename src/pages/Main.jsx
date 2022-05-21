@@ -9,14 +9,36 @@ import styled from 'styled-components';
 function Main() {
   const [todoList, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [name, setName] = useState('');
+  const [checkedList, setCheckedList] = useState([]);
   const navigate = useNavigate();
   const text = window.location.href;
+  const userId = '6288f2b0d803207f09ebb29f';
 
-  const getMissions = async () => {
-    await client.get('/mission/');
+  const getMissions = async (userId) => {
+    const result = await client.get(`/mission/${userId}`);
+    const { nickname } = result.data.data.user;
+    const { missions } = result.data.data;
+    setTodoList([...missions]);
+    setName(nickname);
   };
 
-  useEffect(() => {}, []);
+  const postMission = async () => {
+    const result = await client.post('/mission', {
+      ownerId: userId,
+      content: inputValue,
+    });
+    const { id } = result.data.data;
+    setTodoList([...todoList, { _id: id, content: inputValue }]);
+  };
+
+  useEffect(() => {
+    getMissions(userId);
+  }, []);
+
+  const handleSetCheckedList = (value) => {
+    setCheckedList([...checkedList, value]);
+  };
 
   const handleCopyClipBoard = async (text) => {
     try {
@@ -31,27 +53,36 @@ function Main() {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTodoList([...todoList, { id: 3, content: `${inputValue}` }]);
+    postMission();
+    setInputValue('');
+  };
+
+  const handleCheckedList = async () => {
+    client.post('/mission/confirm', {
+      _id: userId, // link id
+      password: '0720',
+      missions: checkedList, // 선택된 미션 아이디 배열로 넘겨주세요
+    });
   };
 
   return (
     <StyledRoot>
       <img src="" />
       <StyledTitle>
-        <span>채민</span>
+        <span>{name}</span>
         <span>
           내일 뭐 해! <img src={logoGreen} />
         </span>
         <p>
-          <em>채민</em>아, 오늘 난 너가 이걸 했으면 좋겠어
+          <em>{name}</em>아, 오늘 난 너가 이걸 했으면 좋겠어
         </p>
       </StyledTitle>
       <StyledWrapper>
         <StyledUL>
           {todoList.map((el) => (
-            <ListItem key={el.id} content={el.content} />
+            <ListItem key={el._id} id={el._id} content={el.content} handleSetCheckedList={handleSetCheckedList} />
           ))}
         </StyledUL>
         <StyledInputWrapper>
@@ -61,7 +92,7 @@ function Main() {
           </form>
         </StyledInputWrapper>
       </StyledWrapper>
-      <img src={gobtn} />
+      <img src={gobtn} onClick={handleCheckedList} />
       <StyledLinkWrapper>
         <StyledLinkBtn onClick={() => handleCopyClipBoard(text)}>링크 공유하기</StyledLinkBtn>
         <StyledLinkBtn onClick={() => navigate('/')}>나도 쫄 링크 만들기</StyledLinkBtn>
