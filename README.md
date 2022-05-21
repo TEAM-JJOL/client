@@ -20,7 +20,6 @@
 - eslint, prettier사용
 - react-router-dom v.6
 - styled-components는 className 없이 선택자만으로 사용
-- styled-components의 이름은 StyledComponent 형식으로 사용
 - 변수, 폴더명, 컴포넌트가 아닌 js 파일은 camelCase로 선언
 - 컴포넌트 파일은 UpperCamelCase.jsx로 선언
 
