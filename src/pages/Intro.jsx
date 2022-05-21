@@ -1,12 +1,10 @@
 import startBtn from 'assets/btn_start.svg';
-import goshim from 'assets/goshim.png';
 import charactor from 'assets/monster.png';
-import ResultMissionList from 'components/result/ResultMissionList';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 
 const LogoIcon = styled.img`
   margin-bottom: 2.5rem;
@@ -71,10 +69,6 @@ function Intro() {
       <SurviceDsc>친구야 내일 하루 이거 함 해봐 ㅋ 쫄?!</SurviceDsc>
       <IntroImg src={charactor} />
       <StartBtn onClick={() => navigate('login')} url={startBtn} />
-      <FooterContainer>
-        <ShareBtn>링크 공유하기</ShareBtn>
-        <CreateBtn>나도 쫄 링크 만들기</CreateBtn>
-      </FooterContainer>
     </StyledRoot>
   );
 }

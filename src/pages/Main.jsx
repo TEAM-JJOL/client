@@ -1,5 +1,6 @@
-import gobtn from 'assets/ic_gobutton.svg';
-import logoGreen from 'assets/ic_logoGreen.svg';
+import gobtn from 'assets/btn_go.svg';
+import key from 'assets/icn_key.svg';
+import logoGreen from 'assets/logo.svg';
 import ListItem from 'components/main/ListItem';
 import { client } from 'cores/api';
 import React, { useEffect, useState } from 'react';
@@ -89,7 +90,7 @@ function Main() {
       <StyledTitle>
         <span>{name}</span>
         <span>
-          내일 뭐 해! <img src={logoGreen} />
+          내일 뭐 해! <img src={logoGreen} width="53px" height="38px" />
         </span>
         <p>
           <em>{name}</em>, 오늘 난 너가 이걸 했으면 좋겠어
@@ -109,8 +110,8 @@ function Main() {
         </StyledInputWrapper>
       </StyledWrapper>
       <StyledPwWrapper>
-        <img src={logoGreen} />
-        <StyledPassword type="text" placeholder="비밀번호를 입력해주세요" value={pw} onChange={handlePassword} />
+        <img src={key} width="30px" height="30px" />
+        <StyledPassword type="password" placeholder="비밀번호를 입력해주세요" value={pw} onChange={handlePassword} />
       </StyledPwWrapper>
 
       <img src={gobtn} onClick={handleCheckedList} />
@@ -222,9 +223,11 @@ const StyledLinkWrapper = styled.div`
 const StyledInputWrapper = styled.div`
   display: flex;
   align-items: center;
+  height: max-content;
   gap: 1.4rem;
   & > form {
-    width: 100%;
+    display: flex;
+    flex: 1;
   }
 `;
 

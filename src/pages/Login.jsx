@@ -2,7 +2,7 @@ import { client } from 'cores/api';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as Button } from '../assets/button.svg';
+import { ReactComponent as Button } from '../assets/btn_link.svg';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 
 function Login() {

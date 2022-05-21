@@ -14,15 +14,16 @@ const StyledRoot = styled.div`
   display: flex;
   position: absolute;
   height: 100%;
+  width: 100%;
 `;
 
 const BackGround = () => {
   return (
     <StyledRoot>
-      <BgIcon src={Ga} style={{ marginRight: '25.7rem' }} />
-      <BgIcon src={Bo} style={{ marginLeft: '25.7rem' }} />
-      <BgIcon src={Ja} style={{ bottom: '0', marginRight: '25.7rem' }} />
-      <BgIcon src={Go} style={{ bottom: '0', marginLeft: '25.7rem' }} />
+      <BgIcon src={Ga} />
+      <BgIcon src={Bo} style={{ right: '0' }} />
+      <BgIcon src={Ja} style={{ bottom: '0' }} />
+      <BgIcon src={Go} style={{ bottom: '0', right: '0' }} />
     </StyledRoot>
   );
 };
