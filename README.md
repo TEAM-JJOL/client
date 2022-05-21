@@ -1,6 +1,9 @@
 # 쫄?!
 
-<!-- ### 서비스 한줄 소개 -->
+### 서비스 한줄 소개
+친구야 내일 하루 이거 함 해봐 ㅋ **쫄?!**
+
+친구에게 색다른 **내일**을 선사해보세요
 
 ### 기술 스택
 ![react](https://img.shields.io/badge/-react-58c3ff?labelColor=white&logo=React)
