@@ -10,17 +10,19 @@ function Login() {
     nickname: '',
     password: '',
   });
+  const [linkId, setLinkId] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const linkId = getLinkId();
-    window.location.href = '/main/id';
+    getLinkId();
+    // window.location.href = `/main/${linkId}`;
   };
 
-  // const getLinkId = async () => {
-  //   const { data } = await client.post('/link', inputs);
-  //   return data.id;
-  // };
+  const getLinkId = async () => {
+    const result = await client.post('/link', inputs);
+    console.log(result);
+    setLinkId(result.data.id);
+  };
 
   const handleChangeInput = (e) => {
     const { value, name } = e.target;
@@ -36,12 +38,13 @@ function Login() {
       <StForm onSubmit={handleSubmit} id="login">
         <StNameInputWrapper>
           <StNameInput
-            // word={inputs.nickname.length}
+            word={inputs.nickname.length}
             value={inputs.nickname}
             type="text"
             onChange={handleChangeInput}
             name="nickname"
             placeholder="홍길동,"
+            maxLength={5}
             required
           />
           <StNameTitle>내일 뭐 해</StNameTitle>
@@ -75,45 +78,45 @@ const StForm = styled.form`
 const StWrapper = styled.div`
   /* width: 100%;
   height: 100%; */
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  align-items: center; */
+  align-items: center;
 `;
 
 const StNameInputWrapper = styled.div`
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   line-height: 38px;
   margin-bottom: 24px;
 `;
 
-const StNameTitle = styled.p`
+const StNameTitle = styled.span`
   font-size: 32px;
   font-weight: 700;
 `;
 
 const StNameInput = styled.input`
-  /* width: ${(props) => (props.word === 0 ? '95px' : `${props.word * 30}px`)}; */
+  width: ${(props) => (props.word === 0 ? '95px' : `${props.word * 30}px`)};
   font-size: 32px;
   font-weight: 700;
-  /* width: fit-content; */
   border: none;
   &:focus {
     outline: none;
   }
   &::placeholder {
     color: #b3b3b3;
+    font-size: 32px;
   }
 `;
 
 const StPWDInputWrapper = styled.div`
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  align-items: center; */
-  /* width: 100%; */
+  align-items: center;
+  width: 100%;
   hr {
     color: #77777780;
-    /* width: 272px; */
+    width: 272px;
   }
 `;
 
