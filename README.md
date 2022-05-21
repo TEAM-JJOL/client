@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+### 기술 스택
+![react](https://img.shields.io/badge/-react-58c3ff?labelColor=white&logo=React)
+![javascript](https://img.shields.io/badge/-javascript-ffd700?labelColor=white&logo=JavaScript)
+![html5](https://img.shields.io/badge/-html5-fe765a?labelColor=white&logo=HTML5)
+![css3](https://img.shields.io/badge/-css3-white?labelColor=blue&logo=CSS3)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 사용 라이브러리
+```
+"axios": "^0.27.2",
+"json-server": "^0.17.0",
+"react": "^18.1.0",
+"react-dom": "^18.1.0",
+"react-router-dom": "^6.3.0",
+"react-scripts": "5.0.1",
+"styled-components": "^5.3.5",
+"styled-reset": "^4.4.1",
+```
 
-## Available Scripts
+### Code convention
+- eslint, prettier사용
+- react-router-dom v.6
+<!-- - 컴포넌트는 화살표 함수로 선언 -->
+<!-- - props는 구조분해할당 객체로 받아오기 -->
+<!-- - event handler 함수는 HandleEvent 형식으로 선언 -->
+<!-- - styled-components는 className 없이 선택자만으로 사용 -->
+<!-- - styled-components의 이름은 StyledComponent 형식으로 사용 -->
+- 변수, 폴더명, 컴포넌트가 아닌 js 파일은 camelCase로 선언
+- 컴포넌트 파일은 UpperCamelCase.jsx로 선언
 
-In the project directory, you can run:
 
-### `yarn start`
+### Commit message convention
+- feat: 새로운 기능의 추가  
+- fix: 버그 수정
+- css: css 관련 추가, 수정
+- docs: 문서 수정
+- style: 스타일 관련 기능(코드 포맷팅, 세미콜론 누락, 코드 자체의 변경이 없는 경우)
+- refactor: 코드 리팩토링
+- test: 테스트 코트, 리팩토링 테스트 코드 추가
+- chore: 빌드 업무 수정, 패키지 매니저 수정(ex .gitignore 수정 같은 경우)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Git Branch convention
+- Git Flow 방식
 
-### `yarn test`
+main : 최종적으로 배포되는 브랜치
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+feature/{구현기능명} : develop 브랜치 아래에서 컴포넌트 기능 단위로 나누어 브랜치 만들기
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- ### Directory Structure
+```
+⎡ 📁 public
+⎜  ⎿ index.html
+⎣ 📁 src
+   ⎿ 📁 assets
+   ⎹  ⎿ 📁 fonts
+   ⎹  ⎿ 📁 icons
+   ⎹  ⎿ 📁 images
+   ⎿ 📁 components
+   ⎹  ⎿ 📁 common
+   ⎹  ⎿ 📁 create
+   ⎹  ⎿ 📁 ending
+   ⎹  ⎿ 📁 intro
+   ⎹  ⎿ 📁 join
+   ⎹  ⎿ 📁 main
+   ⎹  ⎿ 📁 result
+   ⎿ 📁 libs
+   ⎹  ⎿ 📁 constant
+   ⎹  ⎹  ⎿ colors.js
+   ⎹  ⎿ api.js
+   ⎿ 📁 pages
+   ⎹  ⎿ Create.jsx
+   ⎹  ⎿ Ending.jsx
+   ⎹  ⎿ Intro.jsx
+   ⎹  ⎿ Join.jsx
+   ⎹  ⎿ Main.jsx
+   ⎹  ⎿ Result.jsx
+   ⎿ APP.js
+   ⎿ index.js
+``` -->
