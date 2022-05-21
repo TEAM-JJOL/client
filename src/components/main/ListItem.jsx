@@ -1,6 +1,6 @@
 import { ReactComponent as checkBtn } from 'assets/ic_checkbtn.svg';
-import logoGray from 'assets/ic_logoGray.svg';
-import logoGreen from 'assets/ic_logoGreen.svg';
+import logoGreen from 'assets/logo.svg';
+import logoGray from 'assets/logoGray.svg';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
