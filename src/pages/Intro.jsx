@@ -9,20 +9,17 @@ import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
 const LogoIcon = styled.img`
-  margin-top: 14.7rem;
-  /* margin-left: 10.2rem; */
   margin-bottom: 2.5rem;
 `;
 
 const StartBtn = styled.button`
   background-image: ${(props) => `url(${props.url})`};
   background-color: transparent;
-  background-size: contain;
+  background-size: cover;
   width: 16.9rem;
   height: 6.4rem;
   border: none;
   margin-top: 6.9rem;
-  /* margin-left: 10.9rem; */
 `;
 
 const SurviceDsc = styled.h1`
@@ -61,6 +58,8 @@ const StyledRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
 
 function Intro() {
@@ -71,7 +70,7 @@ function Intro() {
       <LogoIcon src={logo} />
       <SurviceDsc>친구야 내일 하루 이거 함 해봐 ㅋ 쫄?!</SurviceDsc>
       <IntroImg src={charactor} />
-      <StartBtn onClick={() => navigate('Login')} url={startBtn} />
+      <StartBtn onClick={() => navigate('login')} url={startBtn} />
       <FooterContainer>
         <ShareBtn>링크 공유하기</ShareBtn>
         <CreateBtn>나도 쫄 링크 만들기</CreateBtn>

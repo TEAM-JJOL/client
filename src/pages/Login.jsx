@@ -10,17 +10,16 @@ function Login() {
     nickname: '',
     password: '',
   });
-  const [linkId, setLinkId] = useState();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await getLinkId();
-    window.location.href = `/main/${linkId}`;
+    getLinkId();
   };
 
   const getLinkId = async () => {
     const result = await client.post('/link', inputs);
-    setLinkId(result.data.data.id);
+    const { id } = result.data.data;
+    window.location.href = `/main/${id}`;
   };
 
   const handleChangeInput = (e) => {
@@ -76,6 +75,8 @@ const StWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  justify-content: center;
 `;
 
 const StNameInputWrapper = styled.div`
@@ -141,6 +142,5 @@ const StButton = styled.button`
 const StLogoIcon = styled(Logo)`
   width: 92px;
   height: 60px;
-  margin-top: 193px;
   margin-bottom: 65px;
 `;

@@ -3,17 +3,19 @@ import logoGreen from 'assets/ic_logoGreen.svg';
 import ListItem from 'components/main/ListItem';
 import { client } from 'cores/api';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function Main() {
   const [todoList, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [pw, setPassword] = useState('');
   const [name, setName] = useState('');
   const [checkedList, setCheckedList] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
   const text = window.location.href;
-  const userId = '6288f2b0d803207f09ebb29f';
+  const userId = location.pathname.split('/')[2];
 
   const getMissions = async (userId) => {
     const result = await client.get(`/mission/${userId}`);
@@ -49,6 +51,9 @@ function Main() {
     }
   };
 
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -60,11 +65,22 @@ function Main() {
   };
 
   const handleCheckedList = async () => {
-    client.post('/mission/confirm', {
-      _id: userId, // link id
-      password: '0720',
-      missions: checkedList, // 선택된 미션 아이디 배열로 넘겨주세요
-    });
+    if (pw === '') {
+      alert('비밀번호를 입력해 주세요');
+    } else {
+      try {
+        await client.post('/mission/confirm', {
+          _id: userId,
+          password: pw,
+          missions: checkedList,
+        });
+        navigate(`/result/${userId}`);
+      } catch (err) {
+        if (err.response.data.status === 401) {
+          alert('비밀번호가 잘못되었습니다.');
+        }
+      }
+    }
   };
 
   return (
@@ -76,7 +92,7 @@ function Main() {
           내일 뭐 해! <img src={logoGreen} />
         </span>
         <p>
-          <em>{name}</em>아, 오늘 난 너가 이걸 했으면 좋겠어
+          <em>{name}</em>, 오늘 난 너가 이걸 했으면 좋겠어
         </p>
       </StyledTitle>
       <StyledWrapper>
@@ -92,6 +108,11 @@ function Main() {
           </form>
         </StyledInputWrapper>
       </StyledWrapper>
+      <StyledPwWrapper>
+        <img src={logoGreen} />
+        <StyledPassword type="text" placeholder="비밀번호를 입력해주세요" value={pw} onChange={handlePassword} />
+      </StyledPwWrapper>
+
       <img src={gobtn} onClick={handleCheckedList} />
       <StyledLinkWrapper>
         <StyledLinkBtn onClick={() => handleCopyClipBoard(text)}>링크 공유하기</StyledLinkBtn>
@@ -159,6 +180,20 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledPassword = styled.input`
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.5);
+  text-align: center;
+
+  &::placeholder {
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    text-align: center;
+  }
+`;
+
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -191,4 +226,10 @@ const StyledInputWrapper = styled.div`
   & > form {
     width: 100%;
   }
+`;
+
+const StyledPwWrapper = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
 `;
